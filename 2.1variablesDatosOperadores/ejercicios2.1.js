@@ -25,7 +25,7 @@ Fórmula: finalPrice = price - (price * percentage / 100) */
 
 function applyDiscount(price, percentage) {
     const originalPrice = price;
-    let finalPrice = price - (price * percentage / 100);
+    let finalPrice = originalPrice - (originalPrice * percentage / 100);
     return finalPrice;
 }
 
@@ -42,7 +42,7 @@ usando Math.floor) y 'leftover' (caramelos que sobran, con el operador %). */
 function shareCandies(candies, kids) {
     return {
         perKid: Math.floor(candies / kids), // no let porque no creo variables
-        leftOver: candies % kids,
+        leftOver: candies % kids
     };
 }
 
@@ -129,8 +129,9 @@ function checkUser(user) {
         return `Sin declarar`;
     } else if ( user === null) {
         return `Sin usuario`;
-    } else
+    } else {
         return `Usuario: ${user}`;
+    }
 }
 
 console.log(checkUser(undefined));  // Debería mostrar: 'Sin declarar'
