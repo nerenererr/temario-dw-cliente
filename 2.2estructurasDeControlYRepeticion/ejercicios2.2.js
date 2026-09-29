@@ -120,7 +120,16 @@ console.log("\nEjercicio 5: for...of");
 
 // Tu código aquí
 function countVowels(text) {
-    
+    const lowerText = text.toLowerCase();
+    const vowels = "aeiou";
+    let count = 0;
+
+    for (const char of lowerText) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+    return count;
 }
 
 console.log(countVowels("Hola mundo"));   // Debería mostrar: 4
@@ -135,6 +144,13 @@ console.log("\nEjercicio 6: for...in");
 // Recorre el objeto con un 'for...in'.
 
 // Tu código aquí
+function getTotalStock(inventory) {
+    let total = 0;
+    for (const product in inventory) {
+        total += inventory[product]; 
+    }
+    return total;
+}
 
 console.log(getTotalStock({ manzanas: 10, peras: 5, uvas: 8 })); // Debería mostrar: 23
 console.log(getTotalStock({}));                                  // Debería mostrar: 0
@@ -145,13 +161,25 @@ console.log("\nEjercicio 7: while");
 // positivo o cero ('number') y devuelva cuántas cifras tiene.
 // Utiliza un bucle 'while' dividiendo el número entre 10 (con Math.floor)
 // hasta que llegue a 0. Ojo: el número 0 tiene 1 cifra.
- 
+
 // Tu código aquí
- 
+function countDigits(number) {
+    if (number === 0) {
+        return 1;
+    }
+    let count = 0;
+    while (number > 0) {
+        number = Math.floor(number/10); 
+        count++;    
+        
+    }
+    return count;
+}
+
 console.log(countDigits(12345)); // Debería mostrar: 5
 console.log(countDigits(7));     // Debería mostrar: 1
 console.log(countDigits(0));     // Debería mostrar: 1
- 
+
 // 8. break
 console.log("\nEjercicio 8: break");
 // Escribe una función llamada 'findFirstNegativeIndex' que tome un array de
@@ -159,32 +187,42 @@ console.log("\nEjercicio 8: break");
 // negativo, o -1 si no hay ninguno.
 // Utiliza un bucle y la sentencia 'break' para dejar de buscar en cuanto lo
 // encuentres (guarda el resultado en una variable 'let').
- 
+
 // Tu código aquí
- 
+function findFirstNegativeIndex(numbers) {
+    let negative = -1;
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < 0) {
+            negative = i;
+            break;
+        }
+    }
+    return negative;
+}
+
 console.log(findFirstNegativeIndex([4, 7, -2, 5, -9])); // Debería mostrar: 2
 console.log(findFirstNegativeIndex([1, 2, 3]));         // Debería mostrar: -1
- 
+
 // 9. continue
 console.log("\nEjercicio 9: continue");
 // Escribe una función llamada 'sumOddNumbers' que tome un array de números
 // enteros ('numbers') y devuelva la suma de los que son impares.
 // Utiliza un bucle 'for...of' y la sentencia 'continue' para saltarte los
 // números pares.
- 
+
 // Tu código aquí
- 
+
 console.log(sumOddNumbers([1, 2, 3, 4, 5])); // Debería mostrar: 9
 console.log(sumOddNumbers([2, 4, 6]));       // Debería mostrar: 0
- 
+
 // 10. forEach
 console.log("\nEjercicio 10: forEach");
 // Escribe una función llamada 'doubleAll' que tome un array de números
 // ('numbers') y devuelva un NUEVO array con cada número multiplicado por 2.
 // Utiliza el método 'forEach' y 'push' sobre un array 'result' declarado
 // con 'const'. El array original no debe modificarse.
- 
+
 // Tu código aquí
- 
+
 console.log(doubleAll([1, 2, 3])); // Debería mostrar: [ 2, 4, 6 ]
 console.log(doubleAll([]));        // Debería mostrar: []
