@@ -200,6 +200,12 @@ function findFirstNegativeIndex(numbers) {
     return negative;
 }
 
+// .findIndex() es el metodo nativo para hacerlo
+
+function findFirstNegativeIndex2(numbers) {
+    return numbers.findIndex(num => num < 0)
+}
+
 console.log(findFirstNegativeIndex([4, 7, -2, 5, -9])); // Debería mostrar: 2
 console.log(findFirstNegativeIndex([1, 2, 3]));         // Debería mostrar: -1
 
@@ -211,6 +217,16 @@ console.log("\nEjercicio 9: continue");
 // números pares.
 
 // Tu código aquí
+function sumOddNumbers(numbers) {
+    let sum = 0;
+    for (const n of numbers) {
+        if (n % 2 === 0) {
+            continue;            
+        }
+        sum += n;
+    }
+    return sum;
+}
 
 console.log(sumOddNumbers([1, 2, 3, 4, 5])); // Debería mostrar: 9
 console.log(sumOddNumbers([2, 4, 6]));       // Debería mostrar: 0
@@ -223,6 +239,13 @@ console.log("\nEjercicio 10: forEach");
 // con 'const'. El array original no debe modificarse.
 
 // Tu código aquí
+function doubleAll(numbers) {
+    const result = [];
+    numbers.forEach((n) => {
+        result.push(n * 2);
+    })
+    return result;
+}
 
 console.log(doubleAll([1, 2, 3])); // Debería mostrar: [ 2, 4, 6 ]
 console.log(doubleAll([]));        // Debería mostrar: []
