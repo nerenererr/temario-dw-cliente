@@ -133,15 +133,13 @@ const mathUtils = {
     isEven(number) {
         return number % 2 === 0;
     },
-
     average(numbers) {
-        sum = 0.0;
+        let sum = 0.0;
         for (let number of numbers){
             sum += number;
         }
         return sum / numbers.length;
     }
-
 }
 
 console.log(mathUtils.isEven(4));           // Debería mostrar: true
