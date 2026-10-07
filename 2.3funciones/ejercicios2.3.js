@@ -29,7 +29,7 @@ console.log("\nEjercicio 3: Paso por valor con primitivos");
 // lo devuelva (sin 'return'). El objetivo es comprobar que la variable
 // original fuera de la función no cambia.
 
-const tryToDouble = (number) => number * 2;
+const tryToDouble = (number) => number = number * 2;
 
 let value = 10;
 tryToDouble(value);
@@ -41,9 +41,10 @@ console.log("\nEjercicio 4: Paso por referencia con objetos");
 // modifique su propiedad 'paid' poniéndola a true (sin devolver nada).
 // Comprueba que, al tratarse de un objeto, el cambio SÍ afecta al original.
 
-const markAsPaid = (order) => order.paid = true;
+
 
 const order = { id: 1, paid: false };
+const markAsPaid = (order) => order.paid = true;
 markAsPaid(order);
 console.log(order); // Debería mostrar: { id: 1, paid: true }
 
@@ -67,12 +68,11 @@ console.log("\nEjercicio 6: Función que devuelve otra función");
 // 'factor' (number) y devuelva OTRA función. Esa función devuelta debe
 // tomar un número y devolverlo multiplicado por 'factor'.
 
-// Tu código aquí
 
-const double = createMultiplier(2);
-const triple = createMultiplier(3);
-console.log(double(5)); // Debería mostrar: 10
-console.log(triple(5)); // Debería mostrar: 15
+// const double = createMultiplier(2);
+// const triple = createMultiplier(3);
+//console.log(double(5)); // Debería mostrar: 10
+//console.log(triple(5)); // Debería mostrar: 15 
 
 // 7. Función pura
 console.log("\nEjercicio 7: Función pura");
@@ -81,10 +81,10 @@ console.log("\nEjercicio 7: Función pura");
 // el precio con el impuesto aplicado, SIN modificar ninguna variable externa
 // (debe ser una función pura).
 
-// Tu código aquí
 
-console.log(addTax(100, 0.21)); // Debería mostrar: 121
-console.log(addTax(50, 0.1));   // Debería mostrar: 55
+
+//console.log(addTax(100, 0.21)); // Debería mostrar: 121
+//console.log(addTax(50, 0.1));   // Debería mostrar: 55
 
 // 8. Encadenar funciones sobre un array
 console.log("\nEjercicio 8: Encadenar funciones sobre un array");
@@ -93,7 +93,10 @@ console.log("\nEjercicio 8: Encadenar funciones sobre un array");
 // un array solo con los nombres ('name') de los productos cuyo precio sea
 // mayor a 50. Encadena 'filter' y 'map'.
 
-// Tu código aquí
+const getExpensiveProductNames = (products) => 
+    products.filter(product => product.price > 50)
+    .map(product => product.name)
+
 
 const products = [
     { name: "Teclado", price: 25 },
@@ -102,7 +105,7 @@ const products = [
     { name: "Silla", price: 80 }
 ];
 
-console.log(getExpensiveProductNames(products)); // Debería mostrar: [ 'Monitor', 'Silla' ]
+//console.log(getExpensiveProductNames(products)); // Debería mostrar: [ 'Monitor', 'Silla' ]
 
 // 9. Función como objeto (asignar a una variable)
 console.log("\nEjercicio 9: Función como objeto");
@@ -110,7 +113,11 @@ console.log("\nEjercicio 9: Función como objeto");
 // Después, asigna esa función (sin ejecutarla) a una nueva constante llamada
 // 'farewell', y llama a 'farewell' en vez de a 'sayGoodbye'.
 
-// Tu código aquí
+const sayGoodbye = () => {
+    console.log("Adiós");
+}
+
+const farewell = sayGoodbye;
 
 farewell(); // Debería mostrar: 'Adiós'
 
@@ -122,7 +129,20 @@ console.log("\nEjercicio 10: Librería propia");
 // - 'average(numbers)': devuelve la media de un array de números
 // (No hace falta usar 'export'/'import', basta con el objeto en este archivo).
 
-// Tu código aquí
+const mathUtils = {
+    isEven(number) {
+        return number % 2 === 0;
+    },
+
+    average(numbers) {
+        sum = 0.0;
+        for (let number of numbers){
+            sum += number;
+        }
+        return sum / numbers.length;
+    }
+
+}
 
 console.log(mathUtils.isEven(4));           // Debería mostrar: true
 console.log(mathUtils.isEven(7));           // Debería mostrar: false
