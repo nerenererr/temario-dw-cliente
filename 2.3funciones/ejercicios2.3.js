@@ -142,6 +142,11 @@ const mathUtils = {
     }
 }
 
+// método reduce
+
+// array.reduce((acc, current) => {
+//      }, initialValue)
+
 console.log(mathUtils.isEven(4));           // Debería mostrar: true
 console.log(mathUtils.isEven(7));           // Debería mostrar: false
 console.log(mathUtils.average([2, 4, 6]));  // Debería mostrar: 4
