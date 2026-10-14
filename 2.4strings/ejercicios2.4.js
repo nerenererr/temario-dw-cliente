@@ -18,7 +18,9 @@ console.log("\nEjercicio 2: Comillas dentro de comillas");
 // "Hola" forman parte del texto): Dijo "Hola" y se fue
 // Pista: necesitas la barra invertida (\) delante de cada comilla doble interna.
 
-const getQuotedPhrase = ()
+function getQuotedPhrase() {
+    return "Dijo \"Hola\" y se fue"
+}
 
 console.log(getQuotedPhrase()); // Debería mostrar: 'Dijo "Hola" y se fue'
 
@@ -30,7 +32,7 @@ console.log("\nEjercicio 3: Saltos de línea y tabuladores");
 // "Módulo:\t<module>\nTema:\t<topic>"
 // Usa caracteres de escape, no pulses la tecla Enter dentro del string.
 
-// Tu código aquí
+const formatCourseInfo = (module, topic) => `Módulo:\t ${module} \nTema:\t ${topic}`
 
 console.log(formatCourseInfo("DAW", "Strings"));
 // Debería mostrar:
@@ -43,7 +45,7 @@ console.log("\nEjercicio 4: Unir strings con concat()");
 // 'firstWord' y 'secondWord' (strings), y devuelva, usando el método
 // 'concat()' (sin el operador +), el texto "<firstWord> <secondWord>!".
 
-// Tu código aquí
+const joinWords = (firstWord, secondWord) => firstWord.concat(" ", secondWord)
 
 console.log(joinWords("Hello", "World")); // Debería mostrar: 'Hello World!'
 
@@ -58,7 +60,12 @@ console.log("\nEjercicio 5: Primitivos contra objetos String");
 // [a == b, a === b, b == c, b === c]
 // Añade un comentario explicando por qué dan esos valores.
 
-// Tu código aquí
+function compareStringTypes() {
+    const a = "John";
+    const b = new String("John");
+    const c = new String("John");
+    return [a == b, a === b, b == c, b === c]
+}
 
 console.log(compareStringTypes()); // Debería mostrar: [ true, false, false, false ]
 
@@ -69,7 +76,7 @@ console.log("\nEjercicio 6: Interpolación de variables");
 // una plantilla (backticks) con '${}', el texto:
 // "Me llamo <firstName> <lastName> y tengo <age> años."
 
-// Tu código aquí
+const introducePerson = (firstName, lastName, age) => `Me llamo ${firstName} ${lastName} y tengo ${age} años.` 
 
 console.log(introducePerson("Lucía", "Martín", 19));
 // Debería mostrar: 'Me llamo Lucía Martín y tengo 19 años.'
@@ -82,7 +89,7 @@ console.log("\nEjercicio 7: Expresiones dentro de la plantilla");
 // texto con el formato "Total: 96.80 €". El total debe llevar siempre dos
 // decimales (usa toFixed).
 
-// Tu código aquí
+const formatTotalWithTax = (price, vatRate) => `Total: ${(price * (1 + vatRate)).toFixed(2)} €` 
 
 console.log(formatTotalWithTax(80, 0.21)); // Debería mostrar: 'Total: 96.80 €'
 
@@ -96,7 +103,7 @@ const poem = `Primera línea
 Segunda línea
 Tercera línea`;
 
-// Tu código aquí
+
 
 console.log(countLines(poem)); // Debería mostrar: 3
 
