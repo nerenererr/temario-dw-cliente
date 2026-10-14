@@ -19,7 +19,7 @@ console.log("\nEjercicio 2: Comillas dentro de comillas");
 // Pista: necesitas la barra invertida (\) delante de cada comilla doble interna.
 
 function getQuotedPhrase() {
-    return "Dijo \"Hola\" y se fue"
+    return "Dijo \"Hola\" y se fue";
 }
 
 console.log(getQuotedPhrase()); // Debería mostrar: 'Dijo "Hola" y se fue'
@@ -32,7 +32,7 @@ console.log("\nEjercicio 3: Saltos de línea y tabuladores");
 // "Módulo:\t<module>\nTema:\t<topic>"
 // Usa caracteres de escape, no pulses la tecla Enter dentro del string.
 
-const formatCourseInfo = (module, topic) => `Módulo:\t ${module} \nTema:\t ${topic}`
+const formatCourseInfo = (module, topic) => `Módulo:\t ${module}\nTema:\t${topic}`
 
 console.log(formatCourseInfo("DAW", "Strings"));
 // Debería mostrar:
@@ -103,6 +103,9 @@ const poem = `Primera línea
 Segunda línea
 Tercera línea`;
 
+const countLines = (text) => {
+    return text.split("\n").length;
+};
 
 
 console.log(countLines(poem)); // Debería mostrar: 3
@@ -114,7 +117,17 @@ console.log("\nEjercicio 9: Generar HTML");
 // todo seguido y sin espacios ni saltos de línea.
 // Usa plantillas y un bucle for...of.
 
-// Tu código aquí
+const buildHtmlList = (subjects) => {
+    let html = "<ul>";
+
+    for (const subject of subjects) {
+        html += `<li>${subject}</li>`;
+    }
+
+    html += "</ul>";
+
+    return html;
+};
 
 console.log(buildHtmlList(["HTML", "CSS", "JavaScript"]));
 // Debería mostrar: '<ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>'
@@ -126,7 +139,9 @@ console.log("\nEjercicio 10: Los strings son inmutables");
 // Importante: toUpperCase() NO modifica el string original, devuelve uno
 // nuevo; por eso hay que capturar el valor devuelto (con 'return').
 
-// Tu código aquí
+const getUppercase = (text) => {
+    return text.toUpperCase();
+};
 
 console.log(getUppercase("daw")); // Debería mostrar: 'DAW'
 
@@ -136,7 +151,13 @@ console.log("\nEjercicio 11: Acceder a un carácter");
 // devuelva un array con tres letras: la primera (con charAt), la última
 // (con at y un índice negativo) y la tercera (con corchetes).
 
-// Tu código aquí
+const getLetters = (word) => {
+    return [
+        word.charAt(0),
+        word.at(-1),
+        word[2]
+    ];
+};
 
 console.log(getLetters("JavaScript")); // Debería mostrar: [ 'J', 't', 'v' ]
 
@@ -146,7 +167,12 @@ console.log("\nEjercicio 12: Extraer con slice()");
 // y devuelva un array con dos cosas: la palabra "Aplicaciones" (cuenta las
 // posiciones, empiezan en 0) y la palabra "Web" (usando un índice negativo).
 
-// Tu código aquí
+const extractParts = (course) => {
+    return [
+        course.slice(14, 26),
+        course.slice(-3)
+    ];
+};
 
 console.log(extractParts("Desarrollo de Aplicaciones Web"));
 // Debería mostrar: [ 'Aplicaciones', 'Web' ]
@@ -159,7 +185,15 @@ console.log("\nEjercicio 13: slice() contra substring()");
 // Antes de ejecutar, intenta adivinar los valores. Comenta por qué no dan
 // lo mismo.
 
-// Tu código aquí
+const compareSliceSubstring = (text) => {
+    return [
+        text.slice(-4),
+        text.substring(-4)
+    ];
+};
+
+// slice() acepta índices negativos y cuenta desde el final.
+// substring() convierte el índice negativo en 0.
 
 console.log(compareSliceSubstring("Apple, Banana, Kiwi"));
 // Debería mostrar: [ 'Kiwi', 'Apple, Banana, Kiwi' ]
@@ -170,7 +204,9 @@ console.log("\nEjercicio 14: Limpiar un email");
 // que llega con espacios sobrantes y mayúsculas, y devuelva el email sin
 // espacios al principio ni al final y todo en minúsculas.
 
-// Tu código aquí
+const cleanEmail = (rawEmail) => {
+    return rawEmail.trim().toLowerCase();
+};
 
 console.log(cleanEmail("  Student.Name@Mail.COM  "));
 // Debería mostrar: 'student.name@mail.com'
@@ -182,7 +218,9 @@ console.log("\nEjercicio 15: Rellenar con padStart()");
 // tener 4 cifras. Recuerda que padStart es un método de string, no de
 // número.
 
-// Tu código aquí
+const formatId = (number) => {
+    return `ID-${number.toString().padStart(4, "0")}`;
+};
 
 console.log(formatId(7));    // Debería mostrar: 'ID-0007'
 console.log(formatId(42));   // Debería mostrar: 'ID-0042'
@@ -198,7 +236,13 @@ console.log("\nEjercicio 16: Un título con marco");
 // | JS |
 // ======
 
-// Tu código aquí
+const boxTitle = (title) => {
+    const line = "=".repeat(title.length + 4);
+
+    return `${line}
+| ${title} |
+${line}`;
+};
 
 console.log(boxTitle("Strings"));
 // Debería mostrar:
@@ -216,7 +260,13 @@ console.log("\nEjercicio 17: replace() contra replaceAll()");
 // 3. con replace() y una expresión regular que cambie todas las
 //    coincidencias sin distinguir mayúsculas de minúsculas
 
-// Tu código aquí
+const replaceCat = (text) => {
+    return [
+        text.replace("cat", "gato"),
+        text.replaceAll("cat", "gato"),
+        text.replace(/cat/gi, "gato")
+    ];
+};
 
 console.log(replaceCat("cat dog cat bird CAT"));
 // Debería mostrar: [ 'gato dog cat bird CAT', 'gato dog gato bird CAT', 'gato dog gato bird gato' ]
@@ -228,7 +278,14 @@ console.log("\nEjercicio 18: Contar palabras e invertir su orden");
 // (cuántas palabras tiene, con split) y 'reversed' (la misma frase con las
 // palabras en orden inverso, con reverse() y join()).
 
-// Tu código aquí
+const analyzeSentence = (sentence) => {
+    const words = sentence.split(" ");
+
+    return {
+        wordCount: words.length,
+        reversed: words.reverse().join(" ")
+    };
+};
 
 console.log(analyzeSentence("The quick brown fox jumps over the lazy dog"));
 // Debería mostrar: { wordCount: 9, reversed: 'dog lazy the over jumps fox brown quick The' }
@@ -238,7 +295,9 @@ console.log("\nEjercicio 19: De CSV a array");
 // Escribe una función llamada 'csvToArray' que tome una línea de texto
 // ('csvLine') separada por comas y la convierta en un array de strings.
 
-// Tu código aquí
+const csvToArray = (csvLine) => {
+    return csvLine.split(",");
+};
 
 console.log(csvToArray("HTML,CSS,JS,SQL"));
 // Debería mostrar: [ 'HTML', 'CSS', 'JS', 'SQL' ]
@@ -250,7 +309,12 @@ console.log("\nEjercicio 20: Palíndromos");
 // ignorando espacios y mayúsculas/minúsculas. No hace falta tratar tildes
 // ni signos de puntuación.
 
-// Tu código aquí
+const isPalindrome = (text) => {
+    const cleanText = text.toLowerCase().replaceAll(" ", "");
+    const reversedText = cleanText.split("").reverse().join("");
+
+    return cleanText === reversedText;
+};
 
 console.log(isPalindrome("Anita lava la tina")); // Debería mostrar: true
 console.log(isPalindrome("Atar a la rata"));      // Debería mostrar: true
@@ -264,7 +328,12 @@ console.log("\nEjercicio 21 (reto): Poner cada palabra en mayúscula inicial");
 // Por ejemplo: "the qUICK brown fox" -> "The Quick Brown Fox"
 // Pista: split, map, charAt/slice y join.
 
-// Tu código aquí
+const capitalizeWords = (text) => {
+    return text
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
+};
 
 console.log(capitalizeWords("the qUICK brown fox"));
 // Debería mostrar: 'The Quick Brown Fox'
