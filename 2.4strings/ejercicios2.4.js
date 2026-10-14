@@ -6,7 +6,8 @@ console.log("Ejercicio 1: Longitud de un string");
 // y devuelva su número de caracteres (propiedad 'length'). Ojo: los
 // espacios también cuentan.
 
-// Tu código aquí
+const getTextLength = (text) =>
+    text.length;
 
 console.log(getTextLength("Desarrollo de Aplicaciones Web")); // Debería mostrar: 30
 
@@ -17,7 +18,7 @@ console.log("\nEjercicio 2: Comillas dentro de comillas");
 // "Hola" forman parte del texto): Dijo "Hola" y se fue
 // Pista: necesitas la barra invertida (\) delante de cada comilla doble interna.
 
-// Tu código aquí
+const getQuotedPhrase = ()
 
 console.log(getQuotedPhrase()); // Debería mostrar: 'Dijo "Hola" y se fue'
 
