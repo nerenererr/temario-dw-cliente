@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <h1 id="mainTitle">Ejercicio 1</h1>
+    <p id="description">Este es el texto original</p>
+    <button id="changeBtn">Cambiar</button>
+</body>
+<script>
+    const description = document.getElementById('description');
+    const changeBtn = document.getElementById('changeBtn');
+
+    changeBtn.addEventListener('click', () => {description.textContent = 'El texto se ha actualizado.'
+        description.style.backgroundColor = 'yellow';
+        description.style.padding = '10px';
+    });
+</script>
+</html>

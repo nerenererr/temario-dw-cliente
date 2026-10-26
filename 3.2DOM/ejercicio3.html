@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <input type="text" id="taskInput" placeholder="Enter a new task">
+    <button id="addTaskBtn">Add task</button>
+    <ul id="taskList"></ul>
+</body>
+<script>
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+
+    addTaskBtn.addEventListener('click', () => {
+        const taskText = taskInput.value.trim();
+
+        if (taskText !== '') {
+            const newText = document.createElement('li');
+            newText.textContent = taskText;
+            
+            taskList.appendChild(newText);
+
+            taskInput.value = '';
+        } else {
+            alert('Please enter a task!')
+        }
+    });
+</script>
+</html>

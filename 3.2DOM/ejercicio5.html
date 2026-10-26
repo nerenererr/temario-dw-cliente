@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Buscar país">
+    <ul id="countryList">
+        <li>Colombia</li>
+        <li>Perú</li>
+        <li>Brasil</li>
+        <li>España</li>
+    </ul>
+</body>
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const countryItems = document.querySelectorAll('#countryList li');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+
+        countryItems.forEach(item => {
+            const countryName = item.textContent.toLowerCase();
+
+            if (countryName.includes(query)) {
+                item.style.display = 'list-item';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h3>Leave a comment</h3>
+    <textarea name="userComment" id="userComment" rows="4" cols="40" placeholder="Type here..."></textarea>
+    <p id="charCounter">Characters: 0 / 100</p>
+</body>
+<script>
+    const userComment = document.getElementById('userComment');
+    const charCounter = document.getElementById('charCounter');
+    const limit = 100;
+    
+    userComment.addEventListener('input', () => {
+        const currentLength = userComment.value.length;
+        charCounter.textContent = `Characters: ${currentLength} / ${limit}`;
+        
+        if (currentLength > limit) {
+            charCounter.style.color = 'red';
+            charCounter.style.fontWeight = 'bold';
+        } else {
+            charCounter.style.color = 'black';
+            charCounter.style.fontWeight = 'normal';
+        }
+    });
+</script>
+</html>
