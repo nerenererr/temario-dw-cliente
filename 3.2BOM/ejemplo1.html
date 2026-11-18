@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <section>
+        <h2>Window</h2>
+        <p>
+            Viewport: <span id="infoViewport" class="data"></span>
+            Pantalla total: <span id="infoScreen" class="data"></span>
+        </p>
+        <div class="actions">
+            <button id="btnPrompt">Probar prompt y confirm</button>
+            <button id="btnClock">Temporizador 5s</button>
+            <span id="countdown" class="data"></span>
+        </div>
+    </section>
+    <section>
+        <h2>Mis tareas</h2>
+        <form id="formTask">
+            <input type="text" id="inputTask" placeholder="repasar el BOM" required>
+            <button type="submit">Añadir</button>
+        </form>
+        <ul id="taskList"></ul>
+        <button id="btnClear" class="clear">Borrar todo el localStorage</button>
+    </section>
+
+    <script src="ejemplo1.js"></script>
+</body>
+</html>
