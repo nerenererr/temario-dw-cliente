@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    <input id="contador">
+    <input type="text" id="buscador" placeholder="Buscar producto">
+    <ul id="catalogo">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+        <li>f</li>
+        <li>g</li>
+        <li>h</li>
+        <li>A</li>
+    </ul>
+
+    <script>
+        const buscador = document.getElementById('buscador')
+        const contador = document.getElementById('contador');
+        buscador.addEventListener('input', (e) => {
+            const termino = e.target.value.toLowerCase();
+            const items = document.querySelectorAll('#catalogo li');
+            let visibles = 0;
+            items.forEach((li) => {
+                const coincide = li.textContent.toLowerCase().includes(termino);
+                li.style.display = coincide ? 'list-item' : 'none';
+                if (coincide) visibles++;
+            });
+            contador.textContent = visibles === 0 ? "No se ha encontrado el producto" : `Mostrando ${visibles} de ${items.length} productos`;
+            contador.style.color = visibles === 0 ? "red" : "";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <input type="text" id="buscador" placeholder="Buscar producto">
+    <ul id="catalogo">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+        <li>f</li>
+        <li>g</li>
+        <li>h</li>
+        <li>A</li>
+    </ul>
+
+    <script>
+        const buscador = document.getElementById('buscador');
+        buscador.addEventListener('input', (e) => {
+            const termino = e.target.value.toLowerCase();
+            const items = document.querySelectorAll('#catalogo li');
+            items.forEach((li) => {
+                li.style.display = li.textContent.toLowerCase().includes(termino) ? 'list-item' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

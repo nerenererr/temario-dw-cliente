@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <p class="news">Javascript ha sacado una nueva versión</p>
+    <p class="news">Las elecciones son el 29N</p>
+    <p class="news">Bombero rescata a un gatito de un árbol</p>
+    <p class="news">Bombero rescata a un gatito de las elecciones</p>
+    <p class="news">javascript se consolida como el lenguaje más usado</p>
+
+    <button id="btnResaltar">Resaltar noticias de JS</button>
+
+    <script>
+        const btnResaltar = document.getElementById('btnResaltar');
+        btnResaltar.addEventListener('click', () => {
+            const new1 = document.querySelectorAll('.news');
+            new1.forEach((news) => {
+                if (news.textContent.toLowerCase().includes('javascript')) {
+                news.style.backgroundColor = "#fff3cd";
+                news.style.borderLeft = "4px solid #ffc107";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

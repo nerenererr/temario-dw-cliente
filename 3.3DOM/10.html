@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <input type="text" id="nuevaTarea" placeholder="Nueva tarea">
+    <button id="btnCrear">Crear</button>
+    <input type="text" id="filtroTareas" placeholder="Filtrar tareas">
+    <ul id="listaTareas"></ul>
+
+    <script>
+        const nuevaTarea = document.getElementById('nuevaTarea');
+        const btnCrear = document.getElementById('btnCrear');
+        const filtroTareas = document.getElementById('filtroTareas');
+        const listaTareas = document.getElementById('listaTareas');
+
+        btnCrear.addEventListener('click', () => {
+            const texto = nuevaTarea.value.trim();
+            if (texto === '') return;
+            const li = document.createElement('li');
+            li.textContent = texto;
+
+            listaTareas.appendChild(li);
+            nuevaTarea.value = '';
+        })
+    </script>
+</body>
+</html>
